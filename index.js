@@ -2,7 +2,7 @@ const express=require('express');
 const {MongoClient}=require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 require('dotenv').config();
-const cors=require('cors');
+// const cors=require('cors');
 const app=express();
 const port=process.env.PORT || 5000;
 
@@ -14,7 +14,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 
 //middleware
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 
