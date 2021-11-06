@@ -55,11 +55,14 @@ async function run() {
       })
 
         // Add Booking API
+        
+
         app.post('/booktrip', async (req, res) => {
             const trip = req.body;
             const result = await tripBookCollection.insertOne(trip);
-            res.json(result);
-        })
+            console.log(result);
+            res.json(result)
+        });
 
         //alluser orders
         app.get('/allorder',async (req, res) => {
@@ -80,15 +83,15 @@ async function run() {
 
           //deleting user trips
 
-          app.delete('/booktrip/:id',async (req,res)=>{
-            const id=req.params.id;
-            const query={_id:ObjectId(id)};
-            const result=await tripBookCollection.deleteOne(query);
-            console.log('deleting user with id ',result);
+          
+
+          app.delete('/booktrip/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const result = await tripBookCollection.deleteOne(query);
             res.json(result);
-        
-        
-          })
+        })
+
         
         
     
